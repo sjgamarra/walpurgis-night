@@ -8,8 +8,6 @@ import javax.swing.JFrame;
 @SuppressWarnings("serial")
 public class Application extends JFrame{
 
-	private Board board;
-
 	public Application() {
 
 		initUI();
@@ -18,7 +16,7 @@ public class Application extends JFrame{
 	private void initUI() {
 
 		add(new Board());
-		pack();
+		//pack();
 		setSize(600, 400);
 		setTitle("Application");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
