@@ -26,9 +26,13 @@ public class Board extends JPanel {
     }
     
     private void loadImage() {
-        
-        ImageIcon ii = new ImageIcon("bardejov.png");
-        bardejov = ii.getImage();        
+        try{
+        	ImageIcon ii = new ImageIcon("src/com/bluebox/images/pinguin.png");
+            bardejov = ii.getImage();
+        }catch(Exception e){
+        	System.out.println(e.getMessage());
+        }
+                
     }
 
     @Override
