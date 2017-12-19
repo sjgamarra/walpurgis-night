@@ -11,7 +11,7 @@ public class SpriteMapper {
 	int _spriteSize;
 	int _frameCount;
 
-	BufferedImage[] sprites;
+	BufferedImage[][] sprites;
 
 	public SpriteMapper(String sheetName, int frameCount, int columns, int rows, int frameSize) {
 		_frameCount = frameCount;
@@ -24,6 +24,23 @@ public class SpriteMapper {
 
 	}
 
+	private void buildSprites(BufferedImage spriteSheet, int columns, int rows, int frameSize) {
+		sprites =  new BufferedImage[columns][rows];
+		for (int x = 0; x < columns; x++) {
+			for (int y = 0; y < rows; y++) {
+				sprites[x][y] = spriteSheet.getSubimage(x * frameSize,y * frameSize, frameSize, frameSize);
+			}
+		}
+	}
+
+	public BufferedImage getSprite(int col, int row) {
+		return sprites[col][row];
+	}
+
+	public BufferedImage getSprite() {
+		return sprites[0][_imageCount];
+	}
+	
 	public void triggerUpdate() {
 		System.out.println("image count is " + _imageCount);
 		if (_imageCount < _frameCount - 1) {
@@ -31,33 +48,6 @@ public class SpriteMapper {
 		} else {
 			_imageCount = 0;
 		}
-
-	}
-
-	private void buildSprites(BufferedImage spriteSheet, int columns, int rows, int frameSize) {
-
-		sprites = new BufferedImage[25];
-
-		for (int x = 0; x < columns; x++) {
-
-			for (int y = 0; y < rows; y++) {
-
-				sprites[(x * 5) + y] = spriteSheet.getSubimage(x * (frameSize + 1),y * (frameSize + 1), frameSize, frameSize);
-			}
-
-		}
-
-	}
-
-	public BufferedImage getSprite(int imageNumber) {
-
-		return sprites[imageNumber];
-
-	}
-
-	public BufferedImage getSprite() {
-
-		return sprites[_imageCount];
 
 	}
 }
