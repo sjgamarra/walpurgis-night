@@ -9,6 +9,7 @@ import javax.imageio.ImageIO;
 import absurd.walpurgisnight.util.Common;
 
 public class SpriteMapper {
+	@SuppressWarnings("unused")
 	private int frameCount;
 	private BufferedImage[][] sprites;
 

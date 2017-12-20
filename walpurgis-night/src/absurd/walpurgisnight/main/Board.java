@@ -62,7 +62,7 @@ public class Board extends JPanel implements Runnable {
 		x += x_ori;
 		y += y_ori;
 
-		if (y > (B_HEIGHT - 32) && y_ori == 1) {
+		if (y > (B_HEIGHT) && y_ori == 1) {
 			y_ori = -1;
 		}
 		if (y < 0 && y_ori == -1) {
