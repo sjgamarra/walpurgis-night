@@ -15,7 +15,7 @@ public class Board extends JPanel implements Runnable {
 	private final int B_HEIGHT = 100;
 	private final int INITIAL_X = 0;
 	private final int INITIAL_Y = 0;
-	private final int DELAY = 15;
+	private final int DELAY = 10;
 
 	private Image sprite;
 	private Thread animator;

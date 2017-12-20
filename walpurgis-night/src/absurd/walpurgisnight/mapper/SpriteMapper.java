@@ -1,7 +1,6 @@
 package absurd.walpurgisnight.mapper;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
@@ -15,8 +14,8 @@ public class SpriteMapper {
 
 	public SpriteMapper(String sheetName, int frameCount, int columns, int rows, int frameSize) {
 		this.frameCount = frameCount;
-		try {
-			BufferedImage spriteSheet = ImageIO.read(new File(Common.IMG_PATH + sheetName + Common.IMG_EXTE));
+		try {			
+			BufferedImage spriteSheet = ImageIO.read(getClass().getResource(Common.IMG_PATH + sheetName));
 			buildSprites(spriteSheet, columns, rows, frameSize);
 		} catch (IOException e) {
 			System.out.println("Image not found...");
@@ -31,6 +30,8 @@ public class SpriteMapper {
 			}
 		}
 	}
+	
+	//nancy chavez - 403
 
 	public BufferedImage getSprite(int col, int row) {
 		return sprites[col][row];
